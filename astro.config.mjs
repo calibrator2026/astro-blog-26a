@@ -6,7 +6,10 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	  // 将 "your-username" 替换为你的 GitHub 用户名
+	site: 'https://calibrator2026.github.io', 
+  // 将 "your-repo-name" 替换为你的仓库名称（例如 '/my-blog'）
+	base: '/astro-blog-26a', 
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
