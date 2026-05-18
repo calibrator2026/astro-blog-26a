@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # 监听 main 分支的推送
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -16,15 +16,11 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      # 🌟 【新增这一步】强制云端服务器使用 Node 22 版本
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-
+      # 🌟 官方标准的唯一正确姿势：把 node-version 直接塞给 astro 动作
       - name: Install, build, and upload your site
         uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build
