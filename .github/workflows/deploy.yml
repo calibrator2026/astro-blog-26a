@@ -15,6 +15,14 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
+      # 🌟 【新增这一步】强制云端服务器使用 Node 22 版本
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
